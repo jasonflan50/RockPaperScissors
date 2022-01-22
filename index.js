@@ -6,6 +6,7 @@ const scissors = document.getElementById('scissors').addEventListener('click', (
 // Initializes the scoreboard 
 const roundIndicator = document.getElementById('roundIndicator');
 const scoreBoard = document.getElementById('scoreBoard');
+const gameWinner = document.getElementById('gameWinner');
 
 // Initializes variables to keep track of the score
 let playerScore = 0;
@@ -64,47 +65,22 @@ function playRound(player) {
         scoreBoard.innerText=(`Player Score: ${playerScore} \n Computer Score: ${compScore}`);
     }
 
+    checkWinner(playerScore, compScore);
+
 }
 
+function checkWinner(p, c){
+    if (p === 5 || c === 5){
+        if (p === 5){
+            gameWinner.innerText = ('You win!');
+        }
+        else {
+            gameWinner.innerText = ('You lose!');
+        }
+        roundIndicator.innerText = '';
+        scoreBoard.innerText = '';
+        playerScore = 0;
+        compScore = 0;
 
-/* This function will play a best of 3 round game and declare a winner */
-//function game() {
-//
-    //console.log("Best 2 out of 3!");
-//
-    /* variables to keep score */
-    //let playerScore = 0;
-    //let compScore = 0;
-
-    /* loop to play through multiple rounds */
-    //for (let i = 0; i < 20; i++) {
-        //let score = playRound();
-        //console.log(score);
-//
-        /* increase computer score */
-        //if (score.charAt(4) === "l") {
-        //    compScore++;
-        //}
-        /* increase player score */
-       // else if (score.charAt(4) === "w") {
-        //    playerScore++;
-        //}
-//
-        /* Declare a winner */
-       // if (playerScore === 2) {
-        //    console.log("You beat the computer, nice job!")
-        //    return;
-        //}
-        //else if (compScore === 2) {
-        //    console.log("You lost the game, better luck next time!")
-         //   return;
-       // }
-   // }
-//}
-
-/* For debugging
-console.log(computerPlay());
-console.log("----------------");
-*/
-
-//game();
+    }
+}
