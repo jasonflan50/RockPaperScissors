@@ -1,8 +1,17 @@
+// Initialize buttons for user interaction
 const rock = document.getElementById('rock').addEventListener('click', () => playRound('ROCK'));
 const paper = document.getElementById('paper').addEventListener('click', () => playRound('PAPER'));
 const scissors = document.getElementById('scissors').addEventListener('click', () => playRound('SCISSORS'));
-//const rock3 = document.querySelector('button')
 
+// Initializes the scoreboard 
+const roundIndicator = document.getElementById('roundIndicator');
+const scoreBoard = document.getElementById('scoreBoard');
+
+// Initializes variables to keep track of the score
+let playerScore = 0;
+let compScore = 0;
+
+// Chooses the computers move
 function computerPlay() {
     const moves = ["ROCK", "PAPER", "SCISSORS"];
     const int = Math.floor(Math.random() * moves.length);
@@ -10,16 +19,15 @@ function computerPlay() {
     return moves[int];
 }
 
-/* This function will simulate a round */
+/* This function will simulate a game of RPS */
 function playRound(player) {
     
     /* Initialize and store computers move */
     const comp = computerPlay();
 
-    // For debugging
-    console.log(player);
-    console.log(comp);
-    
+    // For debugging & seeing moves
+    //console.log(player);
+    //console.log(comp);
 
     /* Clean up output */
     compOutput = comp.charAt(0) + comp.slice(1).toLowerCase();
@@ -28,22 +36,32 @@ function playRound(player) {
 
     /* --Logic-- */
     if (player === comp) {
-        console.log ("You tied the computer this round!");
+        roundIndicator.innerText=(`You chose: ${player} \n Computer chose: ${comp} \n You tied the computer this round!`);
+        scoreBoard.innerText=(`Player Score: ${playerScore} \n Computer Score: ${compScore}`);
     }
     else if (player === "ROCK" && comp === "PAPER") {
-        console.log  ("You lost this round, Rock loses to Paper");
+        roundIndicator.innerText=(`You chose: ${player} \n Computer chose: ${comp} \n You lost this round, Rock loses to Paper`);
+        compScore += 1;
+        scoreBoard.innerText=(`Player Score: ${playerScore} \n Computer Score: ${compScore}`);
     }
     else if (player === "SCISSORS" && comp === "ROCK") {
-        console.log  ("You lost this round, Scissors lose to Rock");
+        roundIndicator.innerText=(`You chose: ${player} \n Computer chose: ${comp} \n You lost this round, Scissors lose to Rock`);
+        compScore += 1;
+        scoreBoard.innerText=(`Player Score: ${playerScore} \n Computer Score: ${compScore}`);
     }
     else if (player === "PAPER" && comp === "SCISSORS") {
-        console.log  ("You lost this round, Paper loses to Scissors");
+        roundIndicator.innerText=(`You chose: ${player} \n Computer chose: ${comp} \n You lost this round, Paper loses to Scissors`);
+        compScore += 1;
+        scoreBoard.innerText=(`Player Score: ${playerScore} \n Computer Score: ${compScore}`);
     }
     else if (player != "PAPER" && player != "ROCK" && player != "SCISSORS") {
-        console.log  ("Not a valid move, read the rules.");
+        roundIndicator.innerText=(`Not a valid move, read the rules.`);
+        scoreBoard.innerText=(`Player Score: ${playerScore} \n Computer Score: ${compScore}`);
     }
     else {
-        console.log  (`You won this round! ${playerOutput} beats ${compOutput}!`);
+        roundIndicator.innerText=(`You chose: ${player} \n Computer chose: ${comp} \n You won this round! ${playerOutput} beats ${compOutput}!`);
+        playerScore += 1;
+        scoreBoard.innerText=(`Player Score: ${playerScore} \n Computer Score: ${compScore}`);
     }
 
 }
