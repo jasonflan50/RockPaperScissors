@@ -36,21 +36,21 @@ function playRound(player) {
 
     /* --Logic-- */
     if (player === comp) {
-        roundIndicator.innerText=(`You chose: ${player} \n Computer chose: ${comp} \n You tied the computer this round!`);
+        roundIndicator.innerText=(`You chose: ${playerOutput} \n Computer chose: ${compOutput} \n You tied the computer this round!`);
         scoreBoard.innerText=(`Player Score: ${playerScore} \n Computer Score: ${compScore}`);
     }
     else if (player === "ROCK" && comp === "PAPER") {
-        roundIndicator.innerText=(`You chose: ${player} \n Computer chose: ${comp} \n You lost this round, Rock loses to Paper`);
+        roundIndicator.innerText=(`You chose: ${playerOutput} \n Computer chose: ${compOutput} \n You lost this round, Rock loses to Paper`);
         compScore += 1;
         scoreBoard.innerText=(`Player Score: ${playerScore} \n Computer Score: ${compScore}`);
     }
     else if (player === "SCISSORS" && comp === "ROCK") {
-        roundIndicator.innerText=(`You chose: ${player} \n Computer chose: ${comp} \n You lost this round, Scissors lose to Rock`);
+        roundIndicator.innerText=(`You chose: ${playerOutput} \n Computer chose: ${compOutput} \n You lost this round, Scissors lose to Rock`);
         compScore += 1;
         scoreBoard.innerText=(`Player Score: ${playerScore} \n Computer Score: ${compScore}`);
     }
     else if (player === "PAPER" && comp === "SCISSORS") {
-        roundIndicator.innerText=(`You chose: ${player} \n Computer chose: ${comp} \n You lost this round, Paper loses to Scissors`);
+        roundIndicator.innerText=(`You chose: ${playerOutput} \n Computer chose: ${compOutput} \n You lost this round, Paper loses to Scissors`);
         compScore += 1;
         scoreBoard.innerText=(`Player Score: ${playerScore} \n Computer Score: ${compScore}`);
     }
@@ -59,7 +59,7 @@ function playRound(player) {
         scoreBoard.innerText=(`Player Score: ${playerScore} \n Computer Score: ${compScore}`);
     }
     else {
-        roundIndicator.innerText=(`You chose: ${player} \n Computer chose: ${comp} \n You won this round! ${playerOutput} beats ${compOutput}!`);
+        roundIndicator.innerText=(`You chose: ${playerOutput} \n Computer chose: ${compOutput} \n You won this round! ${playerOutput} beats ${compOutput}!`);
         playerScore += 1;
         scoreBoard.innerText=(`Player Score: ${playerScore} \n Computer Score: ${compScore}`);
     }
