@@ -22,6 +22,9 @@ function computerPlay() {
 
 /* This function will simulate a game of RPS */
 function playRound(player) {
+
+    /* Initialize gameWinner to empty on new game start*/
+    gameWinner.innerText = '';
     
     /* Initialize and store computers move */
     const comp = computerPlay();
@@ -72,10 +75,10 @@ function playRound(player) {
 function checkWinner(p, c){
     if (p === 5 || c === 5){
         if (p === 5){
-            gameWinner.innerText = ('You win!');
+            gameWinner.innerText = ('You win! \n Hit any button to start a new game');
         }
         else {
-            gameWinner.innerText = ('You lose!');
+            gameWinner.innerText = ('You lose! \n Hit any button to start a new game');
         }
         roundIndicator.innerText = '';
         scoreBoard.innerText = '';
