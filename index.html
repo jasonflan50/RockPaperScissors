@@ -5,12 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="index.js"></script>
+    <script src ='index.js' defer></script> 
+    <link rel="stylesheet" href="rpsStyle.css">
     <title>Rock Paper Scissors</title>
 </head>
 
 <body>
-    <p>Howdy</p>
+    <header>
+        <h1>Welcome to Rock - Paper - Scissors!</h1>
+    </header>
+
+    <div id='buttons'> 
+        <button id='rock' class="button" value="rock">
+        </button>
+        <button id='paper' class="button" value="paper">
+        </button>
+        <button id='scissors' class="button" value='scissors'>
+        </button>
+    </div>
+
+    <div id='output'>
+        <div id = 'roundIndicator'></div>
+        <div id = 'scoreBoard'><p>
+            Welcome to Rock - Paper - Scissors!<br>
+            Pick a choice to start playing</p>
+        </div>
+        <div id = 'gameWinner'></div>
+    </div>
+
+    <footer>
+        <p>&copy <a href="https://www.linkedin.com/in/jason-flanagan/">Jason Flanagan</a> 2022</p>
+    </footer>
 </body>
 
 </html>
